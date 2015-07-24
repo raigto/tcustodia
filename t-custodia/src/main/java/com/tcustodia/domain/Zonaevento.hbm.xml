@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/07/2015 03:56:01 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.tcustodia.domain.Zonaevento" table="zonaevento" schema="public">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="evento" class="com.tcustodia.domain.Evento" fetch="select">
+            <column name="idevento" />
+        </many-to-one>
+        <many-to-one name="zona" class="com.tcustodia.domain.Zona" fetch="select">
+            <column name="idzona" />
+        </many-to-one>
+        <property name="tiemporestauracion" type="java.lang.Integer">
+            <column name="tiemporestauracion" />
+        </property>
+        <property name="llamar" type="java.lang.Boolean">
+            <column name="llamar" />
+        </property>
+        <property name="visitble" type="java.lang.Boolean">
+            <column name="visitble" />
+        </property>
+    </class>
+</hibernate-mapping>

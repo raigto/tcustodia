@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/07/2015 03:56:01 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.tcustodia.domain.Informacionmedica" table="informacionmedica" schema="public">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="persona" class="com.tcustodia.domain.Persona" fetch="select">
+            <column name="idpersona" />
+        </many-to-one>
+        <many-to-one name="estacioncentral" class="com.tcustodia.domain.Estacioncentral" fetch="select">
+            <column name="idestacioncentral" />
+        </many-to-one>
+        <property name="iddoctor" type="java.lang.Long">
+            <column name="iddoctor" />
+        </property>
+        <property name="alergias" type="string">
+            <column name="alergias" length="300" />
+        </property>
+        <property name="medicamentos" type="string">
+            <column name="medicamentos" length="300" />
+        </property>
+        <property name="tiposangre" type="string">
+            <column name="tiposangre" length="10" />
+        </property>
+        <property name="infomedico" type="string">
+            <column name="infomedico" length="300" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="observaciones" length="300" />
+        </property>
+        <property name="discapacitado" type="java.lang.Boolean">
+            <column name="discapacitado" />
+        </property>
+        <property name="solo" type="java.lang.Boolean">
+            <column name="solo" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/07/2015 03:56:01 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.tcustodia.domain.Cuerposeguridadsector" table="cuerposeguridadsector" schema="public">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cuerposeguridad" class="com.tcustodia.domain.Cuerposeguridad" fetch="select">
+            <column name="idcuerposeguridad" />
+        </many-to-one>
+        <many-to-one name="sector" class="com.tcustodia.domain.Sector" update="false" insert="false" fetch="select">
+            <column name="idcuerposeguridad" />
+        </many-to-one>
+        <property name="idsector" type="java.lang.Long">
+            <column name="idsector" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="300" />
+        </property>
+        <property name="comentario" type="string">
+            <column name="comentario" length="300" />
+        </property>
+        <property name="coordenada" type="java.lang.Character">
+            <column name="coordenada" length="1" />
+        </property>
+        <set name="telefonocuerposeguridads" table="telefonocuerposeguridad" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idcuerposeguridad" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Telefonocuerposeguridad" />
+        </set>
+    </class>
+</hibernate-mapping>

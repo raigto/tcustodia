@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/07/2015 03:56:01 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.tcustodia.domain.Contactos" table="contactos" schema="public">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="parentesco" class="com.tcustodia.domain.Parentesco" fetch="select">
+            <column name="idparentesco" />
+        </many-to-one>
+        <many-to-one name="persona" class="com.tcustodia.domain.Persona" fetch="select">
+            <column name="idpersona" />
+        </many-to-one>
+        <many-to-one name="estacioncentral" class="com.tcustodia.domain.Estacioncentral" fetch="select">
+            <column name="idestacioncentral" />
+        </many-to-one>
+        <property name="nrousuario" type="string">
+            <column name="nrousuario" length="4" />
+        </property>
+        <property name="esabonado" type="java.lang.Boolean">
+            <column name="esabonado" />
+        </property>
+        <property name="orden" type="java.lang.Boolean">
+            <column name="orden" />
+        </property>
+        <set name="contactozonas" table="contactozona" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idcontacto" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Contactozona" />
+        </set>
+    </class>
+</hibernate-mapping>

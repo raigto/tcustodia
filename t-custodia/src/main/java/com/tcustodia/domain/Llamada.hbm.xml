@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/07/2015 03:56:01 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.tcustodia.domain.Llamada" table="llamada" schema="public">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="senal" class="com.tcustodia.domain.Senal" fetch="select">
+            <column name="idsenal" />
+        </many-to-one>
+        <property name="idtelefono" type="java.lang.Long">
+            <column name="idtelefono" />
+        </property>
+        <property name="horainicio" type="date">
+            <column name="horainicio" length="13" />
+        </property>
+        <property name="horafin" type="date">
+            <column name="horafin" length="13" />
+        </property>
+        <property name="comentariooperador" type="string">
+            <column name="comentariooperador" length="300" />
+        </property>
+    </class>
+</hibernate-mapping>

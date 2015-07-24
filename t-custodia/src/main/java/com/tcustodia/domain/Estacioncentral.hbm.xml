@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/07/2015 03:56:01 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.tcustodia.domain.Estacioncentral" table="estacioncentral" schema="public">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="grupoalarma" class="com.tcustodia.domain.Grupoalarma" fetch="select">
+            <column name="idgrupoalarma" />
+        </many-to-one>
+        <many-to-one name="protocolocomunicacion" class="com.tcustodia.domain.Protocolocomunicacion" fetch="select">
+            <column name="idprotocolocomunicacion" />
+        </many-to-one>
+        <many-to-one name="direccion" class="com.tcustodia.domain.Direccion" fetch="select">
+            <column name="iddireccion" />
+        </many-to-one>
+        <many-to-one name="persona" class="com.tcustodia.domain.Persona" fetch="select">
+            <column name="idpersona" />
+        </many-to-one>
+        <property name="nroabonado" type="string">
+            <column name="nroabonado" length="5" />
+        </property>
+        <property name="coaccion" type="string">
+            <column name="coaccion" length="20" />
+        </property>
+        <property name="comentarios" type="string">
+            <column name="comentarios" length="300" />
+        </property>
+        <property name="notatemporal" type="string">
+            <column name="notatemporal" length="300" />
+        </property>
+        <property name="notafechadesde" type="date">
+            <column name="notafechadesde" length="13" />
+        </property>
+        <property name="notafechahasta" type="date">
+            <column name="notafechahasta" length="13" />
+        </property>
+        <set name="informacionmedicas" table="informacionmedica" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idestacioncentral" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Informacionmedica" />
+        </set>
+        <set name="callerids" table="callerid" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idestacioncentral" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Callerid" />
+        </set>
+        <set name="particions" table="particion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idestacioncentral" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Particion" />
+        </set>
+        <set name="contactoses" table="contactos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idestacioncentral" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Contactos" />
+        </set>
+    </class>
+</hibernate-mapping>

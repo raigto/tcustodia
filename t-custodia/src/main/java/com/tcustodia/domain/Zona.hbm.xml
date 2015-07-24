@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/07/2015 03:56:01 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.tcustodia.domain.Zona" table="zona" schema="public">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="particion" class="com.tcustodia.domain.Particion" fetch="select">
+            <column name="idparticion" />
+        </many-to-one>
+        <property name="numero" type="string">
+            <column name="numero" length="4" />
+        </property>
+        <property name="foto" type="string">
+            <column name="foto" length="100" />
+        </property>
+        <property name="camara" type="string">
+            <column name="camara" length="100" />
+        </property>
+        <set name="zonaeventos" table="zonaevento" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idzona" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Zonaevento" />
+        </set>
+        <set name="senals" table="senal" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idzona" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Senal" />
+        </set>
+        <set name="equipozonas" table="equipozona" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idzona" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Equipozona" />
+        </set>
+        <set name="contactozonas" table="contactozona" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idzona" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Contactozona" />
+        </set>
+    </class>
+</hibernate-mapping>

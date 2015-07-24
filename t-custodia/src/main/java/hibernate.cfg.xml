@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">123456</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/tcustodia</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <mapping class="com.tcustodia.domain.Equipo" />
+        <mapping class="com.tcustodia.domain.Particion" />
+        <mapping class="com.tcustodia.domain.Contactozona" />
+        <mapping class="com.tcustodia.domain.Resolucion" />
+        <mapping class="com.tcustodia.domain.Tipodireccion" />
+        <mapping class="com.tcustodia.domain.Llamada" />
+        <mapping class="com.tcustodia.domain.Mensaje" />
+        <mapping class="com.tcustodia.domain.Categoria" />
+        <mapping class="com.tcustodia.domain.Informacionmedica" />
+        <mapping class="com.tcustodia.domain.Cuerposeguridad" />
+        <mapping class="com.tcustodia.domain.Persona" />
+        <mapping class="com.tcustodia.domain.Tipotelefono" />
+        <mapping class="com.tcustodia.domain.Evento" />
+        <mapping class="com.tcustodia.domain.Operador" />
+        <mapping class="com.tcustodia.domain.Sector" />
+        <mapping class="com.tcustodia.domain.Cuerposeguridadsector" />
+        <mapping class="com.tcustodia.domain.Contactos" />
+        <mapping class="com.tcustodia.domain.Equipozona" />
+        <mapping class="com.tcustodia.domain.Direccion" />
+        <mapping class="com.tcustodia.domain.Senal" />
+        <mapping class="com.tcustodia.domain.Estacioncentral" />
+        <mapping class="com.tcustodia.domain.Ciudad" />
+        <mapping class="com.tcustodia.domain.Grupoalarma" />
+        <mapping class="com.tcustodia.domain.Callerid" />
+        <mapping class="com.tcustodia.domain.Zona" />
+        <mapping class="com.tcustodia.domain.Tipopersona" />
+        <mapping class="com.tcustodia.domain.Parentesco" />
+        <mapping class="com.tcustodia.domain.Protocolocomunicacion" />
+        <mapping class="com.tcustodia.domain.Telefonocuerposeguridad" />
+        <mapping class="com.tcustodia.domain.Telefono" />
+        <mapping class="com.tcustodia.domain.Zonaevento" />
+    </session-factory>
+</hibernate-configuration>

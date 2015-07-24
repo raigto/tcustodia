@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/07/2015 03:56:01 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.tcustodia.domain.Senal" table="senal" schema="public">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="mensaje" class="com.tcustodia.domain.Mensaje" fetch="select">
+            <column name="idmensaje" />
+        </many-to-one>
+        <many-to-one name="evento" class="com.tcustodia.domain.Evento" fetch="select">
+            <column name="idevento" />
+        </many-to-one>
+        <many-to-one name="zona" class="com.tcustodia.domain.Zona" fetch="select">
+            <column name="idzona" />
+        </many-to-one>
+        <many-to-one name="operador" class="com.tcustodia.domain.Operador" fetch="select">
+            <column name="idoperador" />
+        </many-to-one>
+        <many-to-one name="resolucion" class="com.tcustodia.domain.Resolucion" fetch="select">
+            <column name="idresolucion" />
+        </many-to-one>
+        <property name="notaoperador" type="string">
+            <column name="notaoperador" length="300" />
+        </property>
+        <property name="abonado" type="string">
+            <column name="abonado" length="10" />
+        </property>
+        <property name="evento_1" type="java.lang.Character">
+            <column name="evento" length="1" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="13" />
+        </property>
+        <set name="llamadas" table="llamada" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idsenal" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Llamada" />
+        </set>
+    </class>
+</hibernate-mapping>

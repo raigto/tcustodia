@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/07/2015 03:56:01 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.tcustodia.domain.Equipozona" table="equipozona" schema="public">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="string">
+            <column name="version" length="100" />
+        </version>
+        <many-to-one name="equipo" class="com.tcustodia.domain.Equipo" fetch="select">
+            <column name="idequipo" />
+        </many-to-one>
+        <many-to-one name="zona" class="com.tcustodia.domain.Zona" fetch="select">
+            <column name="idzona" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

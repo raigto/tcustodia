@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/07/2015 03:56:01 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.tcustodia.domain.Telefonocuerposeguridad" table="telefonocuerposeguridad" schema="public">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cuerposeguridadsector" class="com.tcustodia.domain.Cuerposeguridadsector" fetch="select">
+            <column name="idcuerposeguridad" />
+        </many-to-one>
+        <property name="numero" type="string">
+            <column name="numero" length="20" />
+        </property>
+        <property name="extension" type="string">
+            <column name="extension" length="4" />
+        </property>
+        <property name="orden" type="java.lang.Integer">
+            <column name="orden" />
+        </property>
+    </class>
+</hibernate-mapping>

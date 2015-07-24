@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/07/2015 03:56:01 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.tcustodia.domain.Persona" table="persona" schema="public">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tipopersona" class="com.tcustodia.domain.Tipopersona" fetch="select">
+            <column name="idtipopersona" not-null="true" />
+        </many-to-one>
+        <many-to-one name="direccion" class="com.tcustodia.domain.Direccion" fetch="select">
+            <column name="iddireccion" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="50" not-null="true" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="sexo" length="1" not-null="true" />
+        </property>
+        <property name="fechanacimiento" type="date">
+            <column name="fechanacimiento" length="13" not-null="true" />
+        </property>
+        <set name="informacionmedicas" table="informacionmedica" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpersona" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Informacionmedica" />
+        </set>
+        <set name="estacioncentrals" table="estacioncentral" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpersona" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Estacioncentral" />
+        </set>
+        <set name="telefonos" table="telefono" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpersona" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Telefono" />
+        </set>
+        <set name="contactoses" table="contactos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpersona" />
+            </key>
+            <one-to-many class="com.tcustodia.domain.Contactos" />
+        </set>
+    </class>
+</hibernate-mapping>
